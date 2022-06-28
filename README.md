@@ -5,7 +5,7 @@ All projects in repo are from codeacademy, I have started with learning Python a
 
 Started this journey on 6/13/2022.
 
-**06/27/2022**:
+### 06/27/2022:
 
 
 I created this repo, started with Supermarket code.

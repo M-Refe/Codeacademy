@@ -1,0 +1,1 @@
+#while loop is similar to an if statement

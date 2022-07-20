@@ -176,3 +176,32 @@ def count(sequence, item):
     return count
   
 print (count([1, 2, 1, 1], 1))
+
+#purify 
+#define a function called purify that takes a list of numbers, removes all odd numbers in the list, and "returns" the result. 
+#do not directly modify the list you are given as input; instead return a new list with only the even numbers
+
+#used the community forums to help me with this: GOT IT THOOOOO YAAAAAAAYYYY
+def purify(lst):
+  new = list(lst)
+  for x in lst:
+    if x % 2 == 0:
+      x = x
+    else:
+      new.remove(x)
+  return new
+
+print (purify([8, 5, 9, 4, 6, 7, 3, 2]))
+
+#product
+#define a function called product that takes a list of integers as input and returns the product of all of the elements in the list
+#solution code
+def product(list):
+  total = 1
+  for num in list:
+    total = total * num
+  return total
+
+print (product([4, 5, 5]))
+
+#remove_duplicates

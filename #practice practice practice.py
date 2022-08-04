@@ -205,3 +205,8 @@ def product(list):
 print (product([4, 5, 5]))
 
 #remove_duplicates
+def remove_duplicates():
+
+# The easiest way to approach this problem is to create a new list in your function, 
+# loop through your input list, and add items from your input list to your new list if the current item is not already contained in your new list. 
+# Using the a not in b syntax might help you here

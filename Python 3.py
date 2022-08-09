@@ -1171,3 +1171,228 @@ names_and_dogs_names = zip(owners, dogs_names)
 
 list_of_names_and_dogs_names = list(names_and_dogs_names)
 print(list_of_names_and_dogs_names)
+
+
+
+
+
+#LOOPS
+
+"""
+ In a loop, we perform a process of iteration (repeating tasks).
+Python implements two types of iteration
+
+1. Indefinite iteration, where the number of times the loop is executed depends on how many times a condition is met.
+
+2. Definite iteration, where the number of times the loop will be executed is defined in advance (usually based on the collection size).
+"""
+
+#for loop
+
+"""
+In a for loop, we will know in advance how many times the loop will need to iterate because we will be working on a collection with a predefined length
+
+for <temporary variable> in <collection>:
+  <action>
+
+    1. A for keyword indicates the start of a for loop.
+    2. A <temporary variable> that is used to represent the value of the element in the collection the loop is currently on.
+    3. An in keyword separates the temporary variable from the collection used for iteration.
+    4. A <collection> to loop over. In our examples, we will be using a list.
+    5. An <action> to do anything on each iteration of the loop.
+
+example:
+
+ingredients = ["milk", "sugar", "vanilla extract", "dough", "chocolate"]
+ 
+for ingredient in ingredients:
+  print(ingredient)
+
+    1. ingredient is the <temporary variable>.
+    2. ingredients is our <collection>.
+    3. print(ingredient) was the <action> performed on every iteration using the temporary variable of ingredient.
+
+
+TEMPORARY VARIABLES:
+A temporary variable name is arbitrary and does not need to be defined beforehand
+
+these two examples do the same thing as the example above
+for i in ingredients:
+  print(i)
+
+for item in ingredients:
+ print(item)
+
+Programming best practices suggest we make our temporary variables as descriptive as possible. 
+Since each iteration (step) of our loop is accessing an ingredient it makes more sense to call our temporary variable ingredient rather than i or item
+
+INDENTATION:
+Everything at the same level of indentation after the for loop declaration is included in the loop body and is run on every iteration of the loop
+
+ELEGANT LOOPS:
+Python loves to help us write elegant code so it allows us to write simple for loops in one-line
+    for ingredient in ingredients: print(ingredient)
+One-line for loops are useful for simple programs. 
+It is not recommended you write one-line loops for any loop that has to perform multiple complex actions on each iteration
+"""
+
+#example
+board_games = ["Settlers of Catan", "Carcassone", "Power Grid", "Agricola", "Scrabble"]
+
+sport_games = ["football", "hockey", "baseball", "cricket"]
+
+for game in board_games:
+  print(game)
+
+for sport in sport_games:
+  print(sport)
+
+
+#   FOR LOOPS: USING RANGE
+"""
+Often we will not be iterating through a specific list (or any collection), but rather only want to perform a certain action multiple times
+
+    For example, if we wanted to print out a "Learning Loops!" message six times using a for loop, we would follow this structure:
+
+    for <temporary variable> in <list of length 6>:
+        print("Learning Loops!")
+
+    Notice that we need to iterate through a list with a length of six, but we do not necessarily care what is inside of the list.
+
+To create arbitrary collections of any length, we can pair our for loops with the trusty Python built-in function range().
+
+We can then use the range directly in our for loops as the collection to perform a six-step iteration:
+
+for temp in range(6):
+  print("Learning Loops!")
+
+Would output:
+
+    Learning Loops!
+    Learning Loops!
+    Learning Loops!
+    Learning Loops!
+    Learning Loops!
+    Learning Loops!
+
+    Something to note is we are not using temp anywhere inside of the loop body. 
+    If we are curious about which loop iteration (step) we are on, we can use temp to track it. 
+    Since our range starts at 0, we will add + 1 to our temp to represent how many iterations (steps) our loop takes more accurately.
+
+for temp in range(6):
+  print("Loop is on iteration number " + str(temp + 1))
+
+  Output:
+  Loop is on iteration number 1
+    Loop is on iteration number 2
+    Loop is on iteration number 3
+    Loop is on iteration number 4
+    Loop is on iteration number 5
+    Loop is on iteration number 6
+"""
+
+#example
+"""
+Use the range() function in a for loop to print() out the provided promise variable five times.
+"""
+
+promise = "I will finish the python loops module!"
+
+#my code 
+for every in range(5):
+  print(promise)
+
+
+#WHILE LOOPS
+"""
+  Another type of loop is called a while loop and is a form of indefinite iteration.
+
+A while loop performs a set of instructions as long as a given condition is true
+
+structure
+    while <conditional statement>:
+        action>
+
+count = 0
+while count <= 3:
+  # Loop Body
+  print(count)
+  count += 1
+
+
+    1. count is initially defined with the value of 0. 
+    The conditional statement in the while loop is count <= 3, 
+    which is true at the initial iteration of the loop, 
+    so the loop body executes.
+
+    2. Inside the loop body, count is printed and then incremented by 1.
+
+    3. When the first iteration of the loop has finished, 
+    Python returns to the top of the loop and checks the conditional again. 
+    After the first iteration, count would be equal to 1 so the conditional still evaluates to True and so the loop continues.
+
+    4. This continues until the count variable becomes 4. 
+    At that point, when the conditional is tested it will no longer be True and the loop will stop.
+The output would be:
+
+    0
+    1
+    2
+    3
+
+INDENTATION:
+Notice that in our example the code under the loop declaration is indented. 
+Similar to a for loop, everything at the same level of indentation after the while loop declaration is run on every iteration of the loop while the condition is true.
+
+ELEGANT LOOPS:
+Python allows us to write elegant one-line while loops
+    count = 0
+    while count <= 3: print(count); count += 1
+Here we separate each statement with a ; to denote a separate line of code.
+"""
+
+#To quickly comment out the code, use your cursor or mouse to highlight all the code and press command ⌘ + / on a Mac or CTRL + / on a Windows machine.
+
+#example
+"""
+Let us write a while loop that counts down from 10 to 0(inclusive). 
+Once our loop is finished we will commemorate our accomplishment by printing "We have liftoff!".
+
+1. Create a variable named countdown and set the value to 10.
+2. Define a while loop that will run while our countdown variable is greater than or equal to zero.
+
+On each iteration:
+
+    We should print() the value of the countdown variable.
+    We should decrease the value of the countdown variable by 1
+    Make sure to only print the value of countdown.
+Now that we have built our loop, let’s commemorate our success by printing "We have liftoff!" after the while loop.
+
+"""
+countdown = 10
+while countdown >= 0:
+  print(countdown)
+  countdown -= 1
+print("We have liftoff!")
+
+
+#output should be
+"""
+    10
+    9
+    8
+    7
+    6
+    5
+    4
+    2
+    1
+    We have liftoff!
+"""
+
+#WHILE LOOPS: LISTS
+"""
+we can use while loops to iterate through a list as well
+
+
+"""

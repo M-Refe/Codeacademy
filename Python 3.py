@@ -408,3 +408,326 @@ Logic errors: Errors found by the programmer when the program is not doing what 
 
 Remember, Google and Stack Overflow are a programmers BFFs (best friends forever) in situations where an error is giving you a lot of trouble. For some more motivation, check out this blog post.
 """
+
+
+#Lists
+"""
+A list begins and ends with square brackets ([ and ]).
+Each item (i.e., 67 or 70) is separated by a comma (,)
+It is considered good practice to insert a space () after each comma, but your code will run just fine if you forget the space.
+
+Lists can contain any data type in Python! For example, this list contains a string, integer, boolean, and float.
+
+Append:
+.append(),
+adds an element to the end of the list
+
+.remove(),
+removes the element in the list
+
+
+Plus(+):
+When we want to add multiple items to a list, we can use + to combine two lists (this is also known as concatenation).
+example:
+items_sold_new = items_sold + ["biscuit", "tart"]
+
+output
+['cake', 'cookie', 'bread', 'biscuit', 'tart']
+
+variable: items_sold is not changed when using plus because created a new variable for the list
+
+We can only use + with other lists. If we type in this code:
+my_list = [1, 2, 3]
+my_list + 4
+
+comes with TypeError
+
+Python lists are zero-indexed
+This means that the first element in a list has index 0, rather than 1
+
+When accessing elements of a list, you must use an int as the index. 
+    If you use a float, you will get an error. 
+This can be especially tricky when using division. 
+    For example print(calls[4/2]) will result in an error, because 4/2 gets evaluated to the float 2.0.
+    To solve this problem, you can force the result of your division to be an int by using the int() function. int() takes a number and cuts off the decimal point. 
+    For example, int(5.9) and int(5.0) will both become 5. 
+    Therefore, calls[int(4/2)] will result in the same value as calls[2], whereas calls[4/2] will result in an error.
+
+Accessing List Elements: Negative Index
+
+can use the index -1 to select the last item of a list,
+can use -#'s going backwards to access different items off the list
+["eggs", "butter", "milk", "cucumbers", "juice", "cereal"]
+typically it's 0, 1, 2, 3, 4, 5
+but in negative index is
+-6, -5, -4, -3, -2, -1
+
+2-D lists
+    Lists can contain other lists  
+    For example
+        heights = [["Noelle", 61], ["Ava", 70], ["Sam", 67], ["Mia", 64]]
+
+They are good for representing grids such as games like tic-tac-toe
+tic_tac_toe = [
+            ["X","O","X"], 
+            ["O","X","O"], 
+            ["O","O","X"]
+]
+
+Accessing 2-D lists
+
+heights = [["Noelle", 61], ["Ali", 70], ["Sam", 67]]
+
+
+#Access the sublist at index 0, and then access the 1st index of that sublist. 
+noelles_height = heights[0][1]
+
+Element	        Index
+"Noelle"	heights[0][0]
+61	        heights[0][1]
+"Ali"	    heights[1][0]
+70	        heights[1][1]
+"Sam"	    heights[2][0]
+67	        heights[2][1]
+
+how to access lists within list using the index
+
+example
+class_name_test = [["Jenny", 90], ["Alexus", 85.5], ["Sam", 83], ["Ellie", 101.5]]
+
+sams_score = class_name_test[2][1]
+ellies_score = class_name_test[-1][-1]
+
+
+print(ellies_score)
+print(sams_score)
+print(class_name_test)
+
+Example:
+to access multiple parts of the list
+incoming_class = [["Kenny", "American", 9], ["Tanya", "Russian", 9], ["Madison", "Indian", 7]]
+
+change Madison's grade from 7 to 8 using positive indices
+incoming_class[2][2] = 8
+change Kenny's name to Ken using negative indices
+incoming_class[-3][-3] = "Ken"
+
+print(incoming_class)
+
+
+"""
+
+#Final Example of using 2-D lists and appending/removing
+first_names = ["Ainsley", "Ben", "Chani", "Depak"]
+
+preferred_size = ["Small", "Large", "Medium"]
+
+preferred_size.append("Medium")
+
+print(preferred_size)
+
+
+customer_data = [["Ainsley", "Small", True], ["Ben", "Large", False], ["Chani", "Medium", True], ["Depak", "Medium", False]]
+
+customer_data[2][2] = False
+
+customer_data[1].remove(False)
+
+print(customer_data)
+
+customer_data_final = customer_data + [["Amit", "Large", True], ["Karim", "X-Large", False]]
+
+print(customer_data_final)
+
+
+#project gradebook
+
+"""
+
+1.
+Create a list called subjects and fill it with the classes you are taking:
+
+"physics"
+"calculus"
+"poetry"
+"history"
+
+Stuck? Get a hint
+2.
+Create a list called grades and fill it with your scores:
+
+98
+97
+85
+88
+
+Stuck? Get a hint
+3.
+Manually (without any methods) create a two-dimensional list to combine subjects and grades. Use the table below as a reference to associated values.
+
+Name	Test Score
+"physics"	98
+"calculus"	97
+"poetry"	85
+"history"	88
+
+Assign the value into a variable called gradebook.
+
+
+Stuck? Get a hint
+4.
+Print gradebook.
+
+Does it look how you expected it would?
+
+
+Stuck? Get a hint
+Add More Subjects:
+5.
+Your grade for your computer science class just came in! You got a perfect score, 100!
+
+Use the .append() method to add a list with the values of "computer science" and an associated grade value of 100 to our two-dimensional list of gradebook.
+
+
+Stuck? Get a hint
+6.
+Your grade for "visual arts" just came in! You got a 93!
+
+Use append to add ["visual arts", 93] to gradebook.
+
+
+Stuck? Get a hint
+Modify The Gradebook:
+7.
+Our instructor just told us they made a mistake grading and are rewarding an extra 5 points for our visual arts class.
+
+Access the index of the grade for your visual arts class and modify it to be 5 points greater.
+
+
+Stuck? Get a hint
+8.
+You decided to switch from a numerical grade value to a Pass/Fail option for your poetry class.
+
+Find the grade value in your gradebook for your poetry class and use the .remove() method to delete it.
+
+
+Stuck? Get a hint
+9.
+Use the .append() method to then add a new "Pass" value to the sublist where your poetry class is located.
+
+
+Stuck? Get a hint
+One Big Gradebook!
+10.
+You also have your grades from last semester, stored in last_semester_gradebook.
+
+Create a new variable full_gradebook that combines both last_semester_gradebook and gradebook using + to have one complete grade book.
+
+Print full_gradebook to see our completed list.
+
+
+"""
+
+last_semester_gradebook = [["politics", 80], ["latin", 96], ["dance", 97], ["architecture", 65]]
+
+# Your code below: 
+subjects = ["physics", "calculus", "poetry", "history"]
+grades = [98, 97, 85, 88]
+
+gradebook = [["physics", 98], ["calculus", 97], ["poetry", 85], ["history", 88]]
+
+gradebook.append(["computer science", 100])
+gradebook.append(["visual arts", 93])
+gradebook[-1][-1] = 98
+gradebook[2].remove(85)
+gradebook[2].append("Pass")
+
+full_gradebook = last_semester_gradebook + gradebook
+
+print(full_gradebook)
+
+
+#Working with Lists
+"""
+
+will be learning more methods (ones not covered in basic course)
+
+Python List Methods
+.count(): A list method to count the number of occurrences of an element in a list | count the number of times that an element appears in a list
+.insert(): A list method to insert an element into a specific index of a list | add and remove items from a list using a specific index
+.pop(): A list method to remove an element from a specific index or from the end of a list |add and remove items from a list using a specific index
+range():  a built-in Python function to create a sequence of integers | create lists with continuous values
+len(): A built-in Python function to get the length of a list | get the length of a list
+.sort() / sorted(): A method and a built-in funciton to sort a list |sort a list of items
+
+
+select portions of a list (called slicing)
+"""
+
+#Insert| .insert()
+"""
+
+The index method takes in two inputs:
+1. the index you want to insert into
+2. The element you want to insert at the specified index
+
+this method will handle shifting over elements and can be used with negative indices
+
+"""
+
+#example
+front_display_list = ["Mango", "Filet Mignon", "Chocolate Milk"]
+print(front_display_list)
+
+# Your code below: 
+front_display_list.insert(0, "Pineapple")
+
+
+#Pop| .pop()
+"""
+Pop method takes an optional single input:
+1. The index for the element you want to remove
+
+The method can be called without a specific index. 
+Using .pop() without an index will remove whatever the last element of the list is. 
+In our case "Clowns 101" gets removed.
+
+.pop() is unique in that it will return the value that was removed. 
+If we wanted to know what element was deleted, simply assign a variable to the call of the .pop() method. 
+In this case, we assigned it to removed_element
+
+Passing in an index that does not exist or calling .pop() on an empty list will both result in an IndexError
+"""
+
+#example
+data_science_topics = ["Machine Learning", "SQL", "Pandas", "Algorithms", "Statistics", "Python 3"]
+
+
+# Your code below: 
+data_science_topics.pop()
+# removes last element
+data_science_topics.pop(3)
+#removes algorithms
+print(data_science_topics)
+
+
+#range| range()
+
+"""
+The function range() takes a single input, and generates numbers starting at 0 and ending at the number before the input.
+ The range() function is unique in that it creates a range object
+In order to use this object as a list, we have to first convert it using another built-in function called list()
+
+
+"""
+
+#example
+# Your code below: 
+
+#modified number_list so the range contains numbers starting at 0 up to but not including 9
+number_list = range(9)\
+#created range called zero_to_seven with numbers 0 through 7 
+zero_to_seven = range(8)
+
+print(list(zero_to_seven))
+print(list(number_list))

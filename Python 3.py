@@ -184,6 +184,7 @@ Else, print the name and question, with the Magic 8-Ball  answer.
 
 #Final code
 import random
+from subprocess import STD_ERROR_HANDLE
 name = ""
 question = ""
 answer = ""
@@ -718,6 +719,11 @@ The function range() takes a single input, and generates numbers starting at 0 a
  The range() function is unique in that it creates a range object
 In order to use this object as a list, we have to first convert it using another built-in function called list()
 
+By default, range() creates a list starting at 0. However, if we call range() with two inputs, we can create a list that starts at a different number
+For example, range(2, 9) would generate numbers starting at 2 and ending at 8 (just before 9)
+
+If we use a third input, we can create a list that “skips” numbers
+For example, range(2, 9, 2) will give us a list where each number is 2 greater than the previous number
 
 """
 
@@ -731,3 +737,437 @@ zero_to_seven = range(8)
 
 print(list(zero_to_seven))
 print(list(number_list))
+
+# example
+my_range2 = range(2, 9, 2)
+print(list(my_range2))
+
+# outputs
+# [2, 4, 6, 8]
+
+
+
+#length| len()
+
+"""
+
+Often, we’ll need to find the number of items in a list, usually called its length
+
+When we apply len() to a list, we get the number of elements in that list
+example
+my_list = [1, 2, 3, 4, 5]
+ 
+print(len(my_list))
+
+outputs
+5
+"""
+
+#example
+long_list = [1, 5, 6, 7, -23, 69.5, True, "very", "long", "list", "that", "keeps", "going.", "Let's", "practice", "getting", "the", "length"]
+
+big_range = range(2, 3000, 100)
+
+# Your code below:
+long_list_len = len(long_list)
+print(long_list_len)
+
+big_range_length = len(big_range)
+print(big_range_length)
+
+#outputs
+#18
+#30
+
+
+#slicing 
+"""
+
+often we want to extract only a portion of a list. Dividing a list in such a manner is referred to as slicing
+
+we have a list of letters:
+
+letters = ["a", "b", "c", "d", "e", "f", "g"]
+
+
+Suppose we want to select from "b" through "f"
+letters[start:end]
+
+start is the index of the first element that we want to include in our selection. 
+In this case, we want to start at "b", which has index 1
+
+end is the index of one more than the last index that we want to include. 
+The last element we want is "f", which has index 5, so end needs to be 6
+
+sliced_list = letters[1:6]
+print(sliced_list)
+"""
+
+#example
+
+suitcase = ["shirt", "shirt", "pants", "pants", "pajamas", "books"]
+
+#selects first two element of the list
+beginning = suitcase[0:2]
+#select middle two items
+middle = suitcase[2:4]
+# Your code below: 
+print(beginning)
+print(middle)
+
+#output
+#['shirt', 'shirt']
+#['pants', 'pants']
+
+"""
+slicing pt. 2
+
+slicing syntax in python is very flexible
+
+if want to select the first n elements of a list, could use the following code
+fruits = ["apple", "cherry", "pineapple", "orange", "mango"]
+fruits[:n]
+
+The following code would start slicing from index 0 and up to index 3
+fruits[:3]
+
+We can do something similar when we want to slice the last n elements in a list
+fruits[-n:]
+
+
+Negative indices can also accomplish taking all but n last elements of a list.
+fruits[:-n]
+
+print(fruits[:-1])
+Would output:
+
+['apple', 'cherry', 'pineapple', 'orange']
+
+"""
+
+#example
+suitcase = ["shirt", "shirt", "pants", "pants", "pajamas", "books"]
+
+# Your code below: 
+#only contain last two elements
+last_two_elements = suitcase[-2:]
+print(last_two_elements)
+#slice last three elements
+slice_off_last_three = suitcase[:-3]
+print(slice_off_last_three)
+
+
+#count | .count()
+"""
+
+count is a function that counts the occurrences of an item in a list
+example
+
+letters = ["m", "i", "s", "s", "i", "s", "s", "i", "p", "p", "i"]
+num_i = letters.count("i")
+print(num_i)
+
+counts the number of times "i" appears in the list
+
+.count() returns a value, we can assign it to a variable to use it
+
+
+can even use .count() to count element appearances in a two-dimensional list
+
+example
+number_collection = [[100, 200], [100, 200], [475, 29], [34, 34]]
+
+If we wanted to know how often the sublist [100, 200] appears:
+
+num_pairs = number_collection.count([100, 200])
+print(num_pairs)
+
+outputs
+2
+
+
+"""
+
+#example
+#determine how many students voted for "Jake" and save it to the variable "jake_votes"
+votes = ["Jake", "Jake", "Laurie", "Laurie", "Laurie", "Jake", "Jake", "Jake", "Laurie", "Cassie", "Cassie", "Jake", "Jake", "Cassie", "Laurie", "Cassie", "Jake", "Jake", "Cassie", "Laurie"]
+
+# Your code below: 
+jake_votes = votes.count("Jake")
+print(jake_votes)
+
+
+#sort| sort.()
+#sort| sorted()
+
+"""
+Often, we will want to sort a list in either numerical (1, 2, 3, …) or alphabetical (a, b, c, …) order
+example
+
+names = ["Xander", "Buffy", "Angel", "Willow", "Giles"]
+
+names.sort()
+print(names)
+output
+['Angel', 'Buffy', 'Giles', 'Willow', 'Xander']
+
+.sort() also provides us the option to go in reverse
+names.sort(reverse=True)
+print(names)
+output
+['Xander', 'Willow', 'Giles', 'Buffy', 'Angel']
+
+.sort() method does not return any value and thus does not need to be assigned to a variable
+
+
+sorted()
+
+sorted() is different from .sort()
+
+it comes BEFORE a list, instead of after as all built-in functions do
+it generates a new list rather than modifying the one that already exits
+
+sorted_names = sorted(names)
+print(sorted_names)
+
+output
+['Angel', 'Buffy', 'Giles', 'Willow', 'Xander']
+
+names isn't changed, the sort is in a new variable
+"""
+
+#practice code
+"""
+
+Make Some Pizzas
+1.
+To keep track of the kinds of pizzas you sell, create a list called toppings that holds the following:
+
+"pepperoni"
+"pineapple"
+"cheese"
+"sausage"
+"olives"
+"anchovies"
+"mushrooms"
+
+Stuck? Get a hint
+2.
+To keep track of how much each kind of pizza slice costs, create a list called prices that holds the following integer values:
+
+2
+6
+1
+3
+2
+7
+2
+
+Stuck? Get a hint
+3.
+Your boss wants you to do some research on $2 slices.
+
+Count the number of occurrences of 2 in the prices list, and store the result in a variable called num_two_dollar_slices. Print it out.
+
+
+Stuck? Get a hint
+4.
+Find the length of the toppings list and store it in a variable called num_pizzas.
+
+
+Stuck? Get a hint
+5.
+Print the string We sell [num_pizzas] different kinds of pizza!, where [num_pizzas] represents the value of our variable num_pizzas.
+
+
+Stuck? Get a hint
+6.
+Use the existing data about the pizza toppings and prices to create a new two-dimensional list called pizza_and_prices.
+
+Each sublist in pizza_and_prices should have one pizza topping and an associated price.
+
+Price	Topping
+2	"pepperoni"
+6	"pineapple"
+1	"cheese"
+3	"sausage"
+2	"olives"
+7	"anchovies"
+2	"mushrooms"
+
+For this new list make sure the prices come before the topping name like so:
+
+[price, topping_name]
+Note: You do not need to use your original toppings and prices lists in this exercise. Create a new two-dimensional list from scratch.
+
+
+Stuck? Get a hint
+7.
+Print pizza_and_prices.
+
+Does it look the way you expect?
+
+
+Stuck? Get a hint
+Sorting and Slicing Pizzas
+8.
+Sort pizza_and_prices so that the pizzas are in the order of increasing price (ascending).
+
+
+Stuck? Get a hint
+9.
+Store the first element of pizza_and_prices in a variable called cheapest_pizza.
+
+
+Stuck? Get a hint
+10.
+A man walks into the pizza store and shouts “I will have your MOST EXPENSIVE pizza!”
+
+Get the last item of the pizza_and_prices list and store it in a variable called priciest_pizza.
+
+
+Stuck? Get a hint
+11.
+It looks like the most expensive pizza from the previous step was our very last "anchovies" slice. Remove it from our pizza_and_prices list since the man bought the last slice.
+
+
+Stuck? Get a hint
+12.
+Since there is no longer an "anchovies" pizza, you want to add a new topping called "peppers" to keep your customers excited about new toppings. Here is what your new topping looks like:
+
+[2.5, "peppers"]
+Add the new peppers pizza topping to our list pizza_and_prices.
+
+Note: Make sure to position it relative to the rest of the sorted data in pizza_and_prices, otherwise our data will not be correctly sorted anymore!
+
+
+Stuck? Get a hint
+13.
+Three mice walk into the store. They do not have much money (they are mice), but they do each want different pizzas.
+
+Slice the pizza_and_prices list and store the 3 lowest cost pizzas in a list called three_cheapest.
+
+
+Stuck? Get a hint
+14.
+Great job! The mice are very pleased and will be leaving you a 5-star review.
+
+Print the three_cheapest list.
+
+
+
+"""
+# Your code below:
+toppings = ["pepperoni", "pineapple", "cheese", "sausage", "olives", "achovies", "mushrooms"]
+
+prices = [2, 6, 1, 3, 2, 7, 2]
+num_two_dollar_slices = prices.count(2)
+print(num_two_dollar_slices)
+
+num_pizzas = len(toppings)
+
+print("We sell " + str(num_pizzas) + " different kinds of pizza!")
+
+pizza_and_prices =[[2, "pepperoni"], [6, "pineapple"], [1, "cheese"], [3, "sausage"], [2, "olives"], [7, "anchovies"], [2, "mushrooms"]]
+
+pizza_and_prices.sort()
+print(pizza_and_prices)
+
+cheapest_pizza = pizza_and_prices[0]
+
+priciest_pizza = pizza_and_prices[-1]
+
+pizza_and_prices.pop()
+
+pizza_and_prices.insert(4, [2.5, "peppers"])
+
+three_cheapest = pizza_and_prices[0:3]
+print(pizza_and_prices)
+print(three_cheapest)
+
+
+#tuples
+
+"""
+
+tuple is a data structure in python that allows us to store multiple pieces of data inside of it
+tuple is similar to list
+tuple is inmutable (cannot be changed)
+
+
+"""
+
+my_info = ('Marisa', 27, 'Programmer')
+# ^ tuple will have this stored forever and cannot be changed
+
+name, age, occupation = my_info
+#this will store the info into a separate variable = unpacking a variable
+"""
+unpacking a tuple ^^^
+"""
+
+#one element tuple
+one_element_tuple = (4)
+print(one_element_tuple)
+#this will print out the element 4
+
+#if want to created element tuple, have to type (4,)
+
+#what's a situation a tuple might come in handy?  python provides data structure, store data that have to be grouped together, but they're not similar to each other
+#the order matters when creating an associated variable
+
+
+
+"""
+combining lists: Zip Function
+zip()
+allows us to quickly combine associated data sets without needy to rely on multi-dimensional lists
+
+example
+
+names = ["Jenny", "Alexus", "Sam", "Grace"]
+heights = [61, 70, 67, 64]
+
+
+names_and_heights = zip(names, heights)
+but if to examine the list
+
+print(names_and_heights)
+Would output:
+
+<zip object at 0x7f1631e86b48>
+the zip object contains the LOCATION of this variable in computer's memory
+can convert object into a useable list by using list()
+
+converted_list = list(names_and_heights)
+print(converted_list)
+
+Outputs:
+
+[('Jenny', 61), ('Alexus', 70), ('Sam', 67), ('Grace', 64)]
+
+2 things to notice:
+1. Our data set has been converted from a zip memory object to an actual list (denoted by [ ])
+2. Our inner lists don’t use square brackets [ ] around the values. This is because they have been converted into tuples (an immutable type of list)
+
+
+"""
+
+#example code
+
+"""
+Use zip() to create a new variable called names_and_dogs_names that combines owners and dogs_names lists into a zip object.
+
+Then, create a new variable named list_of_names_and_dogs_names by calling the list() function on names_and_dogs_names.
+
+Print list_of_names_and_dogs_names.
+
+"""
+owners = ["Jenny", "Alexus", "Sam", "Grace"]
+dogs_names = ["Elphonse", "Dr. Doggy DDS", "Carter", "Ralph"]
+
+#code here
+names_and_dogs_names = zip(owners, dogs_names)
+
+list_of_names_and_dogs_names = list(names_and_dogs_names)
+print(list_of_names_and_dogs_names)

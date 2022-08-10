@@ -1394,5 +1394,409 @@ print("We have liftoff!")
 """
 we can use while loops to iterate through a list as well
 
+# Length will be 5 in this case
+length = len(ingredients)
+
+# Index starts at zero
+index = 0
+
+We still need an additional variable that will be used to compare against our length.
+while index < length:
+
+On the first iteration, we will be comparing the equivalent of 0 < 5 which will evaluate to True, and start the execution of our loop body.
+# The first iteration will print ingredients[0]
+print(ingredients[index])
+
+# Increment index to access the next element in ingredients
+# Each iteration gets closer to making the conditional no longer true
+index += 1
+
+
+
+length = len(ingredients)
+index = 0
+ 
+while index < length:
+  print(ingredients[index])
+  index += 1
+"""
 
 """
+We are going to write a while loop to iterate over the provided list python_topics.
+
+First, we will need a variable to represent the length of the list. This will help us know how many times our while loop needs to iterate.
+
+Create a variable length and set its value to be the length of the list of python_topics.
+
+2.Next, we will require a variable to compare to our length variable to make sure we are able to implement a condition that eventually allows the loop to stop.
+
+Create a variable called index and initialize the value to be 0.
+
+3.Let us now build our loop. We want our loop to iterate over the list of python_topics and on each iteration print "I am learning about <element from python_topics>". 
+For this loop we will need the following components:
+
+    A condition for our while loop
+    A statement in the loop body to print from our condition
+    A statement in the loop body to increment our index forward.
+    The end result should output:
+
+        I am learning about variables
+        I am learning about control flow
+        I am learning about loops
+        I am learning about modules
+        I am learning about classes
+
+"""
+#example code
+python_topics = ["variables", "control flow", "loops", "modules", "classes"]
+
+#Your code below: 
+length = len(python_topics)
+index = 0
+
+while index < length:
+  print("I am learning about " + str(python_topics[index]))
+  index +=1
+
+
+#INFINITE LOOPS
+"""
+A loop that never terminates is called an infinite loop
+ If you accidentally stumble into an infinite loop while developing on your own machine, you can end the loop by using control + c to terminate the program.
+
+A program that hits an infinite loop often becomes completely unusable. The best course of action is to avoid writing an infinite loop.
+"""
+
+#LOOP CONTROL: BREAK
+"""
+to prevent a loop to continue running
+you can stop iteration from inside the loop by using break loop control statement
+When the program hits a break statement it immediately terminates a loop
+
+
+Example:
+items_on_sale = ["blue shirt", "striped socks", "knit dress", "red headband", "dinosaur onesie"]
+ 
+print("Checking the sale list!")
+ 
+for item in items_on_sale:
+  print(item)
+  if item == "knit dress":
+    break
+ 
+print("End of search!")
+"""
+
+#example
+"""
+1.You have a list of dog breeds you can adopt, dog_breeds_available_for_adoption.
+
+Using a for loop, iterate through the dog_breeds_available_for_adoption list and print() out each dog breed.
+
+Use the <temporary variable> name of dog_breed in your loop declaration.
+
+2.Inside your for loop, after you print each dog breed, check if the current element inside dog_breed is equal to dog_breed_I_want. If so, print "They have the dog I want!"
+
+
+3.Add a break statement when your loop has found dog_breed_I_want so that the rest of the list does not need to be checked once we have found our breed
+"""
+
+dog_breeds_available_for_adoption = ["french_bulldog", "dalmatian", "shihtzu", "poodle", "collie"]
+dog_breed_I_want = "dalmatian"
+
+for dog_breed in dog_breeds_available_for_adoption:
+  print(dog_breed)
+  if dog_breed == dog_breed_I_want:
+    print("They have the dog I want!")
+    break
+
+#LOOP CONTROL: CONTINUE
+"""
+What if we only want to skip the current iteration of the loop
+Let us take this list of integers as our example:
+
+big_number_list = [1, 2, -1, 4, -5, 5, 2, -9]
+What if we want to print out all of the numbers in a list, but only if they are positive integers. We can use another common loop control statement called continue.
+
+for i in big_number_list:
+  if i <= 0:
+    continue
+  print(i)
+This would produce the output:
+
+1
+2
+4
+5
+2
+We can use another common loop control statement called continue
+
+    1. Similar to when we were using the break control statement, our continue control statement is usually paired with some form of a conditional (if/elif/else).
+    2. When our loop first encountered an element (-1) that met the conditions of the if statement, it checked the code inside the block and saw the continue. 
+    When the loop then encounters a continue statement it immediately skips the current iteration and moves onto the next element in the list (4).
+    3. The output of the list only printed positive integers in the list 
+    because every time our loop entered the if statement and saw the continue statement 
+    it simply moved to the next iteration of the list and thus never reached the print statement.
+
+"""
+
+#example code
+"""
+1.
+Your computer is the doorman at a bar in a country where the drinking age is 21.
+
+Loop through the ages list. If an entry is less than 21, skip it and move to the next entry. Otherwise, print() the age.
+
+"""
+
+#my code
+ages = [12, 38, 34, 26, 21, 19, 67, 41, 17]
+
+for i in ages:
+  if i <= 20:
+    continue
+  print(i)
+
+
+#NESTED LOOPS
+"""
+Loops can be nested in Python, as they can with other programming languages. We will find certain situations that require nested loops.
+
+example
+
+Suppose we are in charge of a science class, that is split into three project teams:
+
+project_teams = [["Ava", "Samantha", "James"], ["Lucille", "Zed"], ["Edgar", "Gabriel"]]
+Using a for or while loop can be useful here to get each team:
+
+for team in project_teams:
+  print(team)
+Would output:
+
+["Ava", "Samantha", "James"]
+["Lucille", "Zed"]
+["Edgar", "Gabriel"]
+But what if we wanted to print each individual student? In this case we would actually need to nest our loops to be able loop through each sub-list
+
+# Loop through each sublist
+for team in project_teams:
+  # Loop elements in each sublist
+  for student in team:
+    print(student)
+
+
+"""
+
+
+"""
+1.We have provided the list sales_data that shows the numbers of different flavors of ice cream sold at three different locations: Scoopcademy, Gilberts Creamery, and Manny’s Scoop Shop.
+
+We want to sum up the total number of scoops sold. Start by defining a variable scoops_sold and set it to zero.
+
+2.Loop through the sales_data list using the following guidelines:
+
+For our temporary variable of the for loop, call it location.
+print() out each location list.
+
+3.Within our sales_data loop, nest a secondary loop to go through each location sublist element and add the element value to scoops_sold.
+
+By the end, you should have the sum of every number in the sales_data nested list.
+
+
+Hint: We want one loop inside of another:
+
+for location in sales_data:
+  # Some Action
+  for <temporary variable> in location
+    # Some Action
+4. Print out the value of scoops_sold outside of the nested loop.
+
+"""
+
+#example code
+sales_data = [[12, 17, 22], [2, 10, 3], [5, 12, 13]]
+
+scoops_sold = 0
+
+for location in sales_data:
+  print(location)
+  for ice_cream in location:
+    scoops_sold = ice_cream + scoops_sold
+print(scoops_sold)
+
+
+#LISTS COMPREHENSIONS: INTRODUCTION
+"""
+In this exercise, we are going to examine another way we can write elegant loops in our programs using list comprehensions.
+
+We could accomplish this using a for loop and a new list called doubled:
+
+numbers = [2, -1, 79, 33, -45]
+doubled = []
+ 
+for number in numbers:
+  doubled.append(number * 2)
+ 
+print(doubled)
+
+Here is our same problem but now written as a list comprehension:
+
+numbers = [2, -1, 79, 33, -45]
+doubled = [num * 2 for num in numbers]
+print(doubled)
+
+
+Let us break down our example in a more general way:
+
+new_list = [<expression> for <element> in <collection>]
+
+In our doubled example, our list comprehension:
+
+    1. Takes an element in the list numbers
+    2. Assigns that element to a variable called num (our <element>)
+    3. Applies the <expression> on the element stored in num and adds the result to a new list called doubled
+    4. Repeats steps 1-3 for every other element in the numbers list (our <collection>)
+"""
+
+#example code
+"""
+1.We have been provided a list of grades in a physics class. Using a list comprehension, create a new list called scaled_grades that scales the class grades based on the highest score.
+
+Since the highest score was a 90 we simply want to add 10 points to all the grades in the list.
+
+2.Print scaled_grades.
+"""
+grades = [90, 88, 62, 76, 74, 89, 48, 57]
+scaled_grades = [num + 10 for num in grades]
+print(scaled_grades)
+
+
+#LIST COMPREHENSIONS: CONDITIONALS
+"""
+for example
+Suppose we wanted to double only our negative numbers from our previous numbers list
+We will start by using a for loop and a list only_negative_doubled:
+
+numbers = [2, -1, 79, 33, -45]
+only_negative_doubled = []
+ 
+for num in numbers:
+  if num < 0: 
+    only_negative_doubled.append(num * 2)
+ 
+print(only_negative_doubled) 
+
+Now, here is what our code would look like using a list comprehension:
+
+numbers = [2, -1, 79, 33, -45]
+negative_doubled = [num * 2 for num in numbers if num < 0]
+print(negative_doubled)
+
+
+In our negative_doubled example, our list comprehension:
+
+    1. Takes an element in the list numbers.
+    2. Assigns that element to a variable called num.
+    3. Checks if the condition num < 0 is met by the element stored in num. If so, it goes to step 4, otherwise it skips it and goes to the next element in the list.
+    4. Applies the expression num * 2 on the element stored in num and adds the result to a new list called negative_doubled
+    5. Repeats steps 1-3 (and sometimes 4) for each remaining element in the numbers list.
+
+We can also use If-Else conditions directly in our comprehensions
+
+example: 
+numbers = [2, -1, 79, 33, -45]
+doubled = [num * 2 if num < 0 else num * 3 for num in numbers ]
+print(doubled)
+
+This is a bit different than our previous comprehension since the conditional if num < 0 else num * 3 comes after the expression num * 2 but before our for keyword
+
+
+"""
+
+# EXAMPLE CODE
+"""
+1.
+We have defined a list heights of visitors to a theme park. In order to ride the Topsy Turvy Tumbletron roller coaster, you need to be above 161 centimeters.
+
+Using a list comprehension, create a new list called can_ride_coaster that has every element from heights that is greater than 161.
+
+2.
+Print can_ride_coaster.
+"""
+heights = [161, 164, 156, 144, 158, 170, 163, 163, 157]
+can_ride_coaster = [height for height in heights if height > 161]
+print(can_ride_coaster)
+
+
+"""
+1.
+Create a list called single_digits that consists of the numbers 0-9 (inclusive).
+
+Checkpoint 2 Passed
+
+Hint
+You can use the list() function with range(n) to make a list from 0 through n-1. The command:
+
+print(list(range(5)))
+yields:
+
+[0, 1, 2, 3, 4]
+2.
+Create a for loop that goes through single_digits and prints out each one.
+
+Checkpoint 3 Passed
+
+Stuck? Get a hint
+3.
+Before the loop, create a list called squares. Assign it to be an empty list to begin with.
+
+Checkpoint 4 Passed
+
+Stuck? Get a hint
+4.
+Inside the loop that iterates through single_digits, append the squared value of each element of single_digits to the list squares. You can do this before or after printing the element.
+
+Checkpoint 5 Passed
+
+Hint
+You can square a number by either using:
+
+number_to_square**2
+(which takes it to the second power), or using:
+
+number_to_square*number_to_square
+which multiplies it by itself.
+
+To append an element to a list, you can use the .append() method:
+
+my_list.append(number_to_add)
+5.
+After the for loop, print out squares.
+
+Checkpoint 6 Passed
+
+Stuck? Get a hint
+6.
+Create the list cubes using a list comprehension on the single_digits list. Each element of cubes should be an element of single_digits taken to the third power.
+
+Checkpoint 7 Passed
+
+Stuck? Get a hint
+7.
+Print cubes.
+
+Good job!
+
+"""
+#example code
+single_digits = range(10)
+squares = []
+
+for item in single_digits:
+  print(item)
+  squares.append(item**2)
+  
+print(squares)
+  
+cubes = [item**3 for item in single_digits]
+print(cubes)

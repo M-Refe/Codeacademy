@@ -1117,7 +1117,96 @@ print(one_element_tuple)
 #the order matters when creating an associated variable
 
 
+#project
 
+"""
+Prices and Cuts:
+1.Carly wants to be able to market her low prices. We want to find out what the average price of a cut is.
+
+First, leTs sum up all the prices of haircuts. Create a variable total_price, and set it to 0.
+
+2.Loop through the prices list and add each price to the variable total_price.
+
+
+3.After your loop, create a variable called average_price that is the total_price divided by the number of prices.
+
+You can get the number of prices by using the len() function.
+
+
+4.Print the value of average_price so the output looks like:
+
+Average Haircut Price: <average_price>
+
+
+5.That average price is more expensive than Carly thought it would be! She wants to cut all prices by 5 dollars.
+
+Use a list comprehension to make a list called new_prices, which has each element in prices minus 5.
+
+6.print new_prices.
+
+Revenue:
+7.Carly really wants to make sure that Carlys Clippers is a profitable endeavor. She first wants to know how much revenue was brought in last week.
+
+Create a variable called total_revenue and set it to 0.
+
+8.Use a for loop to create a variable i that goes from 0 to len(hairstyles)
+
+Hint: You can use range() to do this!
+
+
+9.Add the product of prices[i] (the price of the haircut at position i) and last_week[i] (the number of people who got the haircut at position i) to total_revenue at each step.
+
+
+
+10.After your loop, print the value of total_revenue, so the output looks like:
+
+Total Revenue: <total_revenue>
+11.Find the average daily revenue by dividing total_revenue by 7. Call this number average_daily_revenue and print it out.
+
+12.Carly thinks she can bring in more customers by advertising all of the haircuts she has that are under 30 dollars.
+
+Use a list comprehension to create a list called cuts_under_30 that has the entry hairstyles[i] for each i for which new_prices[i] is less than 30.
+
+You can use range() in your list comprehension to make i go from 0 to len(new_prices) - 1.
+
+
+Hint
+Syntax you can use for your list comprehension might look like:
+
+new_list = [old_list[i] for i in range(len(old_list)) if different_list[i] < 0]
+This makes a new list of every entry in old_list for which the index i satisfies the condition different_list[i] < 0.
+
+13.Print cuts_under_30.
+
+
+"""
+#EXAMPLE CODE
+hairstyles = ["bouffant", "pixie", "dreadlocks", "crew", "bowl", "bob", "mohawk", "flattop"]
+
+prices = [30, 25, 40, 20, 20, 35, 50, 35]
+
+last_week = [2, 3, 5, 8, 4, 4, 6, 2]
+
+total_price = 0
+for price in prices:
+  total_price = total_price + price
+
+average_price = total_price / len(prices)
+print("Average Haircut Price: " + str(average_price))
+
+new_prices = [price - 5 for price in prices]
+print(new_prices)
+#THIS NEXT PART IS CHALLENGING FOR ME
+total_revenue = 0
+for i in range(len(hairstyles)):
+  total_revenue = prices[i] + last_week[i] + total_revenue
+print("Total Revenue: " + str(total_revenue))
+
+average_daily_revenue = total_revenue / 7
+print(average_daily_revenue)
+
+cuts_under_30 = [hairstyles[i] for i in range(len(new_prices) - 1) if new_prices[i] < 30]
+print(cuts_under_30)
 """
 combining lists: Zip Function
 zip()
@@ -1800,3 +1889,601 @@ print(squares)
   
 cubes = [item**3 for item in single_digits]
 print(cubes)
+
+
+
+
+#INTRODUCTIONS TO FUNCTIONS
+"""
+In programming, as we start to write bigger and more complex programs, 
+one thing we will start to notice is we will often have to repeat the same set of steps in many different places in our program.
+
+
+
+example
+Let us imagine we were building an application to help people plan trips! When using a trip planning application we can say a simple procedure could look like this:
+function: navigation_steps()
+
+ 1. Establish your origin and destination
+ 2. Calculate the distance/route
+ 3. Return the best route to the user
+
+Functions are a convenient way to group our code into reusable blocks.
+A function contains a sequence of steps that can be performed repeatedly throughout a program without having to repeat the process of writing the same code again.
+
+DEFINING A FUNCTION
+def function_name():
+
+
+  1. The def keyword indicates the beginning of a function (also known as a function header). 
+  The function header is followed by a name in snake_case format that describes the task the function performs. 
+  It Is best practice to give your functions a descriptive yet concise name.
+
+  2. Following the function name is a pair of parenthesis ( ) that can hold input values known as parameters (more on parameters later in the lesson!). 
+  In this example function, we have no parameters.
+
+  3. A colon : to mark the end of the function header.
+
+  4. Lastly, we have one or more valid python statements that make up the function body (where we have our python comment).
+
+  5. Notice we have indented our # function tasks go here comment. Like loops and conditionals, code inside a function must be indented to show that they are part of the function.
+"""
+
+#EXAMPLE CODE
+#defined a function and it's rules within the function
+def directions_to_timesSq():
+  print("Walk 4 mins to 34th St Herald Square train station.")
+  print("Take the Northbound N, Q, R, or W train 1 stop.")
+  print("Get off the Times Square 42nd Street stop.")
+  print("Take lots of pictures!")
+
+# Call your function here:| this will run the function and execute the statements within the body
+directions_to_timesSq()
+
+"""
+
+ In order for us to make our function a bit more dynamic, we are going to use the concept of function parameters
+ Function parameters allow our function to accept data as an input value. We list the parameters a function takes as input between the parentheses of a function ( ).
+
+EXAMPLE
+def my_function(single_parameter)
+  # some code
+
+In the context of our trip_welcome() function, it would look like this:
+
+def trip_welcome(destination):
+  print("Welcome to Tripcademy!") 
+  print("Looks like you're going to " + destination + " today.")
+
+The parameter is the name defined in the parenthesis of the function and can be used in the function body.
+A function definition in Python
+
+The argument is the data that is passed in when we call the function and assigned to the parameter name.
+"""
+
+#EXAMPLE CODE
+# Your code below:
+def generate_trip_instructions(location):
+  print("Looks like you are planning a trip to visit " + location)
+  print("You can use the public subway system to get to " + location)
+
+generate_trip_instructions("Central Park")
+
+#MULTIPLE PARAMETERS
+"""
+a single parameter is useful but functions let us use as many parameters as we want
+We can write a function that takes in more than one parameter by using commas
+
+example
+def my_function(parameter1, parameter2, parameter3):
+  # Some code
+
+When we call our function, we will need to provide arguments for each of the parameters we assigned in our function definition.
+
+# Calling my_function
+my_function(argument1, argument2)
+
+EXAMPLE
+1.Our travel application users want to calculate the total expenses they may have to incur on a trip.
+
+Write a function called calculate_expenses that will have four parameters (in exact order):
+
+plane_ticket_price
+car_rental_rate
+hotel_rate
+trip_time
+Each of these parameters will account for a different expense that our users will incur.
+
+Note: Like before, if we run this function now, we will get an error since there are no statements in the body.
+
+2.Within the body of the function, let us start to make some calculations for our expenses. First, let us calculate the total price for a car rental.
+
+Create new variable called car_rental_total that is the product of car_rental_rate and trip_time.
+
+
+3.Next, we want to apply the same logic but for our hotel_rate.
+
+Create new variable called hotel_total that is the product of hotel_rate and trip_time.
+
+We also have a coupon to give our users some cashback for their hotel visit so subtract 10 from that total in the same statement. Woohoo, coupons! 💵
+
+4.Lastly, let us print a nice message for our users to see the total. Use print to output the sum of car_rental_total, hotel_total and plane_ticket_price.
+
+5.Call your function with the following argument values for the parameters listed:
+
+plane_ticket_price : 200
+car_rental_rate : 100
+hotel_rate : 100
+trip_time: 5
+
+"""
+
+#EXAMPLE CODE
+# Write your code below: 
+def calculate_expenses(plane_ticket_price, car_rental_rate, hotel_rate, trip_time):
+  car_rental_total = car_rental_rate * trip_time
+  hotel_total = hotel_rate * trip_time - 10
+  print(car_rental_total + hotel_total + plane_ticket_price)
+
+calculate_expenses(200, 100, 100, 5)
+
+
+
+#TYPES OF ARGUMENTS
+"""
+3 different types of arguments we can give a function
+
+1. Positional arguments: arguments that can be called by their position in the function definition.
+Their assignments depend on their positions in the function call.
+
+2. Keyword arguments: arguments that can be called by their name.
+Alternatively, we can use Keyword Arguments where we explicitly refer to what each argument is assigned to in the function call
+Notice in the code example below that the arguments do not follow the same order as defined in the function declaration.
+
+calculate_taxi_price(rate=0.5, discount=10, miles_to_travel=100)
+
+
+3. Default arguments: arguments that are given default values.
+We can provide a default value to an argument by using the assignment operator (=). This will happen in the function declaration rather than the function call.
+
+Here is an example where the discount argument in our calculate_taxi_price function will always have a default value of 10:
+
+def calculate_taxi_price(miles_to_travel, rate, discount = 10):
+  print(miles_to_travel * rate - discount )
+
+When using a default argument, we can either choose to call the function without providing a value for a discount (and thus our function will use the default value assigned) or overwrite the default argument by providing our own:
+
+# Using the default value of 10 for discount.
+calculate_taxi_price(10, 0.5)
+ 
+# Overwriting the default value of 10 with 20
+calculate_taxi_price(10, 0.5, 20)
+
+
+EXAMPLE
+1.Tripcademy (our trusty travel app) needs to allow passengers to plan a trip (duh).
+
+Write a function called trip_planner() that will have three parameters: first_destination, second_destination and final_destination.
+
+Give the final_destination parameter a default value of "Codecademy HQ".
+
+Note: Since we did not define any code in our function yet, we will receive an error in our output terminal. Don’t worry, we will be filling in the code in the next step.
+
+
+2.First, we want to introduce the trip to users. Use print() in our function to output Here is what your trip will look like!.
+
+
+3.In our function definition let us provide an itinerary that will describe the destinations our user will visit in order. Print a statement that follows this form:
+
+First, we will stop in <first_destination>, then <second_destination>, and lastly <final_destination>
+An example call to our function using positional arguments:
+
+trip_planner("London", "India", "New Zealand")
+Should output:
+
+Here is what your trip will look like!
+First, we will stop in London, then India, and lastly New Zealand
+To test out your function, call trip_planner() with the following values for the parameters:
+
+first_destination: "France"
+
+second_destination: "Germany"
+
+final_destination: "Denmark"
+
+
+4.Call the function trip_planner() again with the following values for the parameters:
+
+first_destination: "Denmark"
+
+second_destination: "France"
+
+final_destination: "Germany"
+
+Note the difference in your output depending on the position of your arguments.
+
+
+5.Call the function trip_planner() again using keyword arguments in this exact order:
+
+first_destination: "Iceland"
+
+final_destination: "Germany"
+
+second_destination: "India"
+
+
+6.Lastly, go ahead and call the function trip_planner() using only two positional arguments to see the default argument in action:
+
+first_destination: "Brooklyn"
+
+second_destination: "Queens"
+"""
+
+#EXAMPLE CODE
+# Write your code below:
+def trip_planner(first_destination, second_destination, final_destination="Codecademy HQ"):
+  print("Here is what your trip will look like!")
+  print("First, we will stop in " + first_destination + ", then " + second_destination + ", and lastly " + final_destination)
+
+trip_planner("France", "Germany", "Denmark")
+trip_planner("Denmark", "France", "Germany")
+trip_planner(first_destination="Iceland", final_destination="Germany", second_destination="India")
+
+trip_planner("Brooklyn", "Queens")
+
+#BUILT-IN FUNCTIONS VS USER DEFINED FUNCTIONS
+"""
+2 distinct categories for functions in Python
+
+User Defined Functions - functions written by users
+
+Built-in functions - funcitons that come built into Python for us to use.
+
+examples of built-in functions:
+
+print()
+str()
+len()
+help(): output the definition
+max(): take the max amount
+min(): takes the min amount
+round(): rounds number, followed by an argument on how many decimal places we want to round it
+
+  example
+  The round() built-in function takes in two arguments. The first argument is the number we want to round, followed by an argument on how many decimal places we want to round it.
+
+    Here is an example:
+
+    rounded_zero = round(10.54, 0)
+    rounded_one = round(10.54, 1)
+ 
+    print(rounded_zero)
+    print(rounded_one)
+"""
+
+#VARIABLE ACCESS
+"""
+where exactly do we have access to our variables?
+
+only where it is defined. if a variable is only defined within a function, it can only be accessed within the function. not outside of it
+We call the part of a program where destination can be accessed its "scope"
+
+If a variable lives outside of any function it can be accessed anywhere in the file
+"""
+
+#RETURNS
+"""
+Functions can also return a value to the program so that this value can be modified or used late
+
+Saving our values returned from a function allows us to reuse the value (in the form of a variable) throughout the rest of the program.
+
+When there is a result from a function that is stored in a variable, it is called a returned function value
+
+
+EXAMPLE
+1.Our travel application is getting really popular. Some of our users have posted on social media that it would be useful if our application could help them track their budget during trips. We want to help them track their starting budget and let them know how much they have left after an expense.
+
+We have provided some starting code to get started. Take a second to understand the code and then click Run and take a look at the output.
+
+2.Let Us create a new function called deduct_expense() that will take two parameters.
+
+The first parameter will be budget and the second parameter will be expense. Our function will be taking in a budget value as well as the expense we want to subtract.
+
+We will want our function to return the budget minus the expense our travelers are incurring.
+
+3.Looks like the most common expense our travelers are incurring is a t-shirt purchase.
+
+Let Us create a variable called shirt_expense and for now, we will give it a set value of 9 (We are not accounting for currency changes at the moment). Make sure this is defined outside of the functions in your script.
+
+
+4.Now that we have an expense to subtract, create a new variable called new_budget_after_shirt and set it to be the function call of deduct_expense().
+
+Pass our current_budget variable as the first argument and the shirt_expense variable as the second argument.
+
+
+5.Lastly, we want our users to see the remaining budget.
+
+Call the provided print_remaining_budget() function, passing in new_budget_after_shirt as the only argument.
+
+6.Great Job! This is the biggest program with functions we have built so far! Take a second to review your code and click Run one last time when you are ready to move on.
+"""
+#EXAMPLE CODE
+current_budget = 3500.75
+
+def print_remaining_budget(budget):
+  print("Your remaining budget is: $" + str(budget))
+
+print_remaining_budget(current_budget)
+
+# Write your code below: 
+
+def deduct_expense(budget, expense):
+  return budget - expense
+
+shirt_expense = 9
+
+new_budget_after_shirt = deduct_expense(current_budget, shirt_expense)
+
+print_remaining_budget(new_budget_after_shirt)
+
+
+#MUTLIPLE RETURNS
+"""
+Sometimes we may want to return more than one value from a function. We can return several values by separating them with a comma
+
+example
+
+weather_data = ['Sunny', 'Sunny', 'Cloudy', 'Raining', 'Snowing']
+ 
+def threeday_weather_report(weather):
+  first_day = " Tomorrow the weather will be " + weather[0]
+  second_day = " The following day it will be " + weather[1]
+  third_day = " Two days from now it will be " + weather[2]
+  return first_day, second_day, third_day
+
+This function takes in a set of data in the form of a list for the upcoming week’s weather. We can get our returned function values by assigning them to variables when we call the function:
+
+monday, tuesday, wednesday = threeday_weather_report(weather_data)
+ 
+print(monday)
+print(tuesday)
+print(wednesday)
+
+EXAMPLE
+
+1.Our users liked the previous functionality that we added to our travel application, but recently we have had an influx of users planning trips in Italy. We want to create a small function to output the top places to visit in Italy. Another member of our team already started on the implementation of this feature but it is still missing a few key details.
+
+Take a second to review the code and click Run when you are ready to move on. For now, there will be no output.
+
+2.We want to be able to return the three most popular destinations from our function top_tourist_locations_italy().
+
+Add a line in the function top_tourist_locations_italy() that will return the values of first, second, third in that exact order.
+
+3.
+In order to use our three returned values from top_tourist_locations_italy() we need to assign them to new variables names after we call our function.
+
+Set the return of the function top_tourist_locations_italy() to be equal to three new variables called most_popular1, most_popular2, and most_popular3 in that exact order.
+
+4.Use three print() statements to output the value of most_popular1, most_popular2, and most_popular3.
+"""
+
+#EXAMPLE CODE
+def top_tourist_locations_italy():
+  first = "Rome"
+  second = "Venice"
+  third = "Florence"
+  return first, second, third
+
+most_popular1, most_popular2, most_popular3 = top_tourist_locations_italy()
+
+print(most_popular1)
+print(most_popular2)
+print(most_popular3)
+
+#EXAMPLE CODE| REVIEW
+"""
+1. Alright, this is it. We are going to use all of our knowledge of functions to build out TripPlanner V1.0.
+
+First, like in our previous exercises, we want to make sure to welcome our users to the application.
+
+Create a function called trip_planner_welcome() that takes one parameter called name. The function should use print() to output a message like this:
+
+Welcome to tripplanner v1.0 <Name Here>
+Where <Name Here> represents the parameter variable of name we defined.
+
+Call trip_planner_welcome(), passing your name as an argument.
+
+
+2.Next, we are going to define a function called estimated_time_rounded() that will allow us to calculate a rounded time value based on a decimal for our users trip.
+
+An example call for this function will look like this:
+
+estimated_time_rounded(2.5)
+Where 2 represents 2 hours and .5 represents 30 minutes.
+
+Define the function estimated_time_rounded() with a single parameter estimated_time. The function should do two things:
+
+Create a variable called rounded_time that is the result of calling the round() built-in function on the parameter estimated_time.
+Return rounded_time.
+After the function definition, call estimated_time_rounded() with a decimal argument and save the result to a variable called estimate. Since this amount represents a time, be sure to use a positive number.
+
+3.Next, we are going to generate messages for a users planned trip.
+
+Create a function called destination_setup() that will have four parameters in this exact order:
+
+origin
+destination
+estimated_time
+mode_of_transport
+Give the parameter mode_of_transport a default value of "Car". The program will error out if we run it since we have not defined a function body yet. Dont worry we will do that in the next step.
+
+
+4.Next, we are going to write four print() statements in our function. The output on this function call should look like this:
+
+Your trip starts off in <origin>
+And you are traveling to <destination>
+You will be traveling by <mode_of_transport>
+It will take approximately <estimated_time> hours
+Each of these print() statements use a different parameter from our function destination_setup().
+
+Note: The estimated_time parameter will come in the form of an integer. Make sure to use str() to convert the parameter in your print statement.
+
+After the function definition, call destination_setup() with the following arguments:
+
+origin and destination should be string values representing the places you will travel from and to
+Use the estimate you created earlier for estimated_time
+If you will be traveling by a mode other than Car, be sure to overwrite the default value of mode_of_transport
+
+
+
+5.Great job! 👏
+
+We have successfully finished our first version of the trip builder application. Go ahead and try passing different values into your functions!
+
+
+"""
+def trip_planner_welcome(name):
+  print("Welcome to tripplanner v1.0 " + name)
+
+trip_planner_welcome("Marisa")
+
+def estimated_time_rounded(estimated_time):
+  rounded_time = round(estimated_time)
+  return rounded_time
+
+estimate = estimated_time_rounded(4.56)
+
+def destination_setup(origin, destination, estimated_time, mode_of_transport="Car"):
+  print("Your trip starts off in " + origin)
+  print("And you are traveling to " + destination)
+  print("You will be traveling by " + mode_of_transport)
+  print("It will take approximately " + str(estimated_time) + " hours")
+
+destination_setup("LAX", "Germany", estimate, "Plane")
+
+
+#EXAMPLE CODE/ PROJECT
+"""
+Turn up the Temperature
+1.Write a function called f_to_c that takes an input f_temp, a temperature in Fahrenheit, and converts it to c_temp, that temperature in Celsius.
+
+It should then return c_temp.
+
+The equation you should use is:
+
+Temp (C) = (Temp (F) - 32) * 5/9
+
+
+2.Lets test your function with a value of 100 Fahrenheit.
+
+Define a variable f100_in_celsius and set it equal to the value of f_to_c with 100 as an input.
+
+
+3.Write a function called c_to_f that takes an input c_temp, a temperature in Celsius, and converts it to f_temp, that temperature in Fahrenheit.
+
+It should then return f_temp.
+
+The equation you should use is:
+
+Temp (F) = Temp (C) * (9/5) + 32
+
+4.Lets test your function with a value of 0 Celsius.
+
+Define a variable c0_in_fahrenheit and set it equal to the value of c_to_f with 0 as an input.
+
+
+Use the Force
+5.Define a function called get_force that takes in mass and acceleration. It should return mass multiplied by acceleration.
+
+6.Test get_force by calling it with the variables train_mass and train_acceleration.
+
+Save the result to a variable called train_force and print it out.
+
+7.Print the string “The GE train supplies X Newtons of force.”, with X replaced by train_force.
+
+8.Define a function called get_energy that takes in mass and c.
+
+c is a constant that is usually set to the speed of light, which is roughly 3 x 10^8. Set c to have a default value of 3*10**8.
+
+get_energy should return mass multiplied by c squared.
+
+9.Test get_energy by using it on bomb_mass, with the default value of c. Save the result to a variable called bomb_energy.
+
+
+10.Print the string “A 1kg bomb supplies X Joules.”, with X replaced by bomb_energy.
+
+Do the Work
+11.Define a final function called get_work that takes in mass, acceleration, and distance.
+
+Work is defined as force multiplied by distance. First, get the force using get_force, then multiply that by distance. Return the result.
+
+
+Hint
+To call get_force, use mass and acceleration as inputs. Do this inside the get_work function.
+
+12.Test get_work by using it on train_mass, train_acceleration, and train_distance. Save the result to a variable called train_work.
+
+13.Print the string "The GE train does X Joules of work over Y meters.", with X replaced with train_work and Y replaced with train_distance.
+
+
+Hint
+Remember to cast train_work and train_distance to strings using str() before concatenating.
+
+The GE train does 22680000 Joules of work over 100, by the way.
+
+"""
+
+#PROJECT CODE
+# Uncomment this when you reach the "Use the Force" section
+train_mass = 22680
+train_acceleration = 10
+train_distance = 100
+bomb_mass = 1
+
+
+# Write your code below: 
+
+def f_to_c(f_temp):
+  c_temp = (f_temp - 32 * 5/9)
+  return c_temp
+
+f100_in_celsius = f_to_c(100)
+print(f100_in_celsius)
+
+def c_to_f(c_temp):
+  f_temp = c_temp * (9/5) + 32
+  return f_temp
+
+c0_in_fahrenheit = c_to_f(0)
+print(c0_in_fahrenheit)
+
+
+def get_force(mass, acceleration):
+  return mass * acceleration
+
+train_force = get_force(train_mass, train_acceleration)
+print(train_force)
+
+print("The GE train supplies " + str(train_force) + " Newtons of force.")
+
+def get_energy(mass, c=3*10**8):
+  return mass * c**2
+
+bomb_energy = get_energy(bomb_mass)
+print("A 1kg bomb supplies " + str(bomb_energy) + " Joules.")
+
+
+def get_work(mass, acceleration, distance):
+  get_force = mass * acceleration
+  return get_force
+
+train_work = get_work(train_mass, train_acceleration, train_distance)
+
+print("The GE train does " + str(train_work) + " Joules of work over " + str(train_distance) + " meters.")
+
+
+#REGGIE'S LINEAR REGRESSION
+"""
+this project will combine lists, loops, and syntax to help a mad scientist perform some calculations on his data
+
+"""

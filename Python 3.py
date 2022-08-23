@@ -2487,3 +2487,59 @@ print("The GE train does " + str(train_work) + " Joules of work over " + str(tra
 this project will combine lists, loops, and syntax to help a mad scientist perform some calculations on his data
 
 """
+
+#Articles on Codeacademy Notes
+
+def in_range(num, lower, upper):
+  if(num >= lower and num <= upper):
+    return True
+  return False
+
+"""
+In this solution, we test the two bounds connected with an and boolean operator. 
+This means that the code nested in the if statement will only execute if both of the conditions are true. 
+We also do not include the else statement here. Since our if statement will return True and exit the function if the condition is true, 
+the last line will only be reached if the condition was false.
+"""
+
+#elif and numerous if statements
+
+def movie_review(rating):
+  if(rating <= 5):
+    return "Avoid at all costs!"
+  if(rating < 9):
+    return "This one was fun."
+  return "Outstanding!"
+
+"""
+above was codeacademy's solution
+below is my solution.
+both works
+"""
+def movie_review(rating):
+  if (rating <= 5):
+    return "Avoid at all costs!"
+  elif (rating < 9):
+    return "This one was fun."
+  else:
+    return "Outstanding!"
+
+#elif and if function example
+def max_num(num1, num2, num3):
+  if (num1 > num2 and num1 > num3):
+    return num1
+  elif(num2 > num1 and num2 > num3):
+    return num2
+  elif(num3 > num1 and num3 > num2):
+    return num3
+  else:
+    return ("It's a tie!")
+
+"""
+this is my code and solution code
+In this code, we use a series of if, elif, and else statements. 
+We test the first parameter against the other two parameters and return the value if it is greater than the other two. 
+We have two more tests to check if the second parameter is greater than the other two, then if the third parameter is greater than the other two. 
+In the case where none of the parameters were greater than both of the other parameters, 
+then we know that there must have been a tie and the final return statement is reached.
+"""

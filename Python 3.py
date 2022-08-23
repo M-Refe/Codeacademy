@@ -2543,3 +2543,73 @@ We have two more tests to check if the second parameter is greater than the othe
 In the case where none of the parameters were greater than both of the other parameters, 
 then we know that there must have been a tie and the final return statement is reached.
 """
+
+#Append list
+
+def append_size(lst):
+  lst.append(len(lst))
+  return lst
+"""
+appends lst with the length of list aka adds the number of how many items are in list, to the end of the list
+"""
+
+def append_sum(lst):
+  lst.append(lst[-1] + lst[-2])
+  lst.append(lst[-1] + lst[-2])
+  lst.append(lst[-1] + lst[-2])
+  return lst
+
+"""
+The function should add the last two elements of lst together and append the result to lst. It should do this process three times and then return lst.
+"""
+
+#length of list
+
+def larger_list(lst1, lst2):
+  if len(lst1) >= len(lst2):
+    return lst1[-1]
+  else:
+    return lst2[-1]
+
+"""
+The function should return the last element of the list that contains more elements. If both lists are the same size, then return the last element of lst1.
+"""
+
+#count item in list
+def more_than_n(lst, item, n):
+  if lst.count(item) > n:
+    return True
+  else:
+    return False
+"""
+The function should return True if item appears in the list more than n times. The function should return False otherwise.
+"""
+
+#sorting lists in a function
+def combine_sort(lst1, lst2):
+  unsorted = (lst1 + lst2)
+  sortedList = sorted(unsorted)
+  return sortedList
+
+"""
+The function should combine these two lists into one new list and sort the result. Return the new sorted list.
+"""
+
+#range
+
+def every_three_nums(start):
+  return list(range(start, 101, 3))
+"""
+The function should return a list of every third number between start and 100 (inclusive). 
+For example, every_three_nums(91) should return the list [91, 94, 97, 100]. 
+If start is greater than 100, the function should return an empty list.
+"""
+
+#remove list in middle of list
+
+def remove_middle(lst, start, end):
+  return lst[:start] + lst[end+1:]
+
+"""
+The function should return a list where all elements in lst with an index between start and end (inclusive) have been removed.
+"""

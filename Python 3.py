@@ -2656,3 +2656,301 @@ The function should return a new list where all elements are the same as in lst 
 The element at index should be double the value of the element at index of the original lst.
 If index is not a valid index, the function should return the original list.
 """
+
+#find middle element in list
+
+def middle_element(lst):
+  if len(lst) % 2 == 0:
+    sum = lst[int(len(lst)/2)] + lst[int(len(lst)/2) - 1]
+    return sum / 2
+  else:
+    return lst[int(len(lst)/2)]
+
+"""
+there is no way i can figure this out, i need to review this a bit more
+
+instructions:
+Create a function called middle_element that has one parameter named lst.
+
+If there are an odd number of elements in lst, the function should return the middle element. 
+If there are an even number of elements, the function should return the average of the middle two elements.
+
+Hint
+Remember to use modulus % to determine if a number is divisible by 2. 
+If len(lst) % 2 == 0 then the number is even. If we divide the length of the list by 2 we can get the middle element index. 
+We then need to convert that value into an integer and access element at that index. 
+This will look something like: lst[int(len(lst)/2)].
+
+
+  solution explanation:
+  We used modulus to determine if the list had an even or odd number of elements. 
+  After determining this, for an odd number of elements, we calculate the middle index and return the middle element from the list. 
+  For an even number of elements, we calculate the index of the element close to the middle and the other element close to the middle 
+  (by subtracting 1 from the middle calculation). We get the values at those indices and calculate the average.
+
+  Note that the math to find the middle index is a bit tricky. 
+  In some cases, when we divide by 2, we would get a double. 
+  For example, if our list had 3 items in it, then 3/2 would give us 1.5. 
+  The middle index should be 1, so in order to go from 1.5 to 1, we cast 1.5 as an int. 
+  In total, this is int(len(lst)/2).
+"""
+
+
+# Divisible By Ten
+
+"""
+
+
+Lets start our code challenges with a function that counts how many numbers are divisible by ten from a list of numbers. 
+This function will accept a list of numbers as an input parameter and use a loop to check each of the numbers in the list. 
+Every time a number is divisible by 10, a counter will be incremented and the final count will be returned. 
+These are the steps we need to complete this:
+
+Define the function to accept one input parameter called nums
+Initialize a counter to 0
+Loop through every number in nums
+Within the loop, if any of the numbers are divisible by 10, increment our counter
+Return the final counter value
+
+
+
+Create a function named divisible_by_ten() that takes a list of numbers named nums as a parameter.
+
+Return the count of how many numbers in the list are divisible by 10.
+
+Hint
+Create a counter that starts at 0. Inside the loop, whenever you find a number divisible by ten, add 1 to that counter.
+x is divisible by ten if x % 10 == 0 is True.
+
+
+"""
+
+
+#Write your function here
+def divisible_by_ten(nums):
+  count = 0
+  for number in nums:
+    if (number % 10 == 0):
+      count += 1
+  return count
+
+
+
+#Uncomment the line below when your function is done
+print(divisible_by_ten([20, 25, 30, 35, 40]))
+
+
+
+#Greetings
+
+"""
+You are invited to a social gathering, but you are tired of greeting everyone there. 
+Luckily we can create a function to accomplish this task for us. 
+In this challenge, we will take a list of names and prepend the string 'Hello, ' before each name. 
+This will require a few steps:
+
+  Define the function to accept a list of strings as a single parameter called names
+  Create a new list of strings
+  Loop through each name in names
+  Within the loop, concatenate 'Hello, ' and the current name together and append this new string to the new list of strings
+  Afterwards, return the new list of strings
+
+  Create a function named add_greetings() which takes a list of strings named names as a parameter.
+
+  In the function, create an empty list that will contain each greeting. 
+  Add the string 'Hello, ' in front of each name in names and append the greeting to the list.
+
+  Return the new list containing the greetings.
+
+Hint
+Use + to concatenate 'Hello, ' with every name in names. Don't forget to add the comma and the space to the greeting!
+
+"""
+
+def add_greetings(names):
+  new_list = []
+  for name in names:
+    new_list.append("Hello, " + name)
+  return new_list
+#Uncomment the line below when your function is done
+print(add_greetings(["Owen", "Max", "Sophie"]))
+
+#my solution was pretty close considering I haven't coded in a couple of weeks
+
+def add_greetings(names):
+  names([])
+  for name in names:
+    names.append("Hello, " + name)
+
+#Uncomment the line below when your function is done
+print(add_greetings(["Owen", "Max", "Sophie"]))
+
+
+
+#Delete starting even numbers
+
+"""
+Lets try a tricky challenge involving removing elements from a list. 
+This function will repeatedly remove the first element of a list until it finds an odd number or runs out of elements.
+ It will accept a list of numbers as an input parameter and return the modified list where any even numbers at the beginning of the list are removed. 
+ To do this, we will need the following steps:
+
+    Define our function to accept a single input parameter lst which is a list of numbers
+    Loop through every number in the list if there are still numbers in the list and if we havent hit an odd number yet
+    Within the loop, if the first number in the list is even, then remove the first number of the list
+    Once we hit an odd number or we run out of numbers, return the modified list
+
+
+Write a function called delete_starting_evens() that has a parameter named lst.
+The function should remove elements from the front of lst until the front of the list is not even. The function should then return lst.
+For example if lst started as [4, 8, 10, 11, 12, 15], then delete_starting_evens(lst) should return [11, 12, 15].
+Make sure your function works even if every element in the list is even!
+
+Hint
+  Use a while loop to check two things. 
+  First, check if the list has at least one element, using len(lst). 
+  Second, check to see if the first element is odd using mod (%). 
+  If both of those are True, slice off the first element of the list using lst = lst[1:].
+
+
+After defining our method, we use a while loop to keep iterating as long as some provided conditions are true. 
+We provide two conditions for the while loop to continue. 
+We will keep iterating as long as there is at least one number left in the list len(lst) > 0 and if the first element in the list is even lst[0] % 2 == 0. 
+If both of these conditions are true, then we replace the list with every element except for the first one using lst[1:]. 
+Once the list is empty or we hit an odd number, the while loop terminates and we return the modified list.
+
+"""
+#given solution
+
+def delete_starting_evens(lst):
+  while (len(lst) > 0 and lst[0] % 2 == 0):
+    lst = lst[1:]
+  return lst
+
+#my solution
+
+def delete_starting_evens(lst):
+  new_list = []
+  for element % 2 == 0 in lst:
+    new_list.remove(0)
+  return delete_starting_evens(lst)
+
+#Uncomment the lines below when your function is done
+print(delete_starting_evens([4, 8, 10, 11, 12, 15]))
+print(delete_starting_evens([4, 8, 10]))
+
+
+#Odd Indices
+
+"""
+This next function will give us the values from a list at every odd index. 
+We will need to accept a list of numbers as an input parameter and loop through the odd indices instead of the elements. 
+Here are the steps needed:
+
+  Define the function header to accept one input which will be our list of numbers
+  Create a new list which will hold our values to return
+  Iterate through every odd index until the end of the list
+  Within the loop, get the element at the current odd index and append it to our new list
+  Return the list of elements which we got from the odd indices.
+
+Create a function named odd_indices() that has one parameter named lst.
+The function should create a new empty list and add every element from lst that has an odd index. The function should then return this new list.
+For example, odd_indices([4, 3, 7, 10, 11, -2]) should return the list [3, 10, -2].
+
+Hint
+There are a few ways to do this. range(1, len(lst), 2) will create a list of the indices you're interested in. So you could loop through that list like this:
+for index in range(1, len(lst), 2):
+  new_list.append(lst[index])
+ 
+
+In our solution, we iterate through a range of values. 
+The function range(1, len(lst), 2) returns a list of numbers starting at 1, ending at the length of len, and incrementing by 2. 
+This causes the loop to iterate through every odd number until the last index of our list of numbers. 
+Using this, we can simply append the element at whatever index we are at since we know that using our range we will be iterating through only odd indices.
+
+Another way to do this would be to iterate through all indices and use an if statement to see if the index youre currently looking at is odd.
+"""
+
+#my solution without the help
+def odd_indices(lst):
+  new_list = []
+  lst.append([])
+  return new_list
+
+
+#my solution with help
+#Write your function here
+def odd_indices(lst):
+  new_list = []
+  for index in range (1, len(lst), 2):
+    new_list.append(lst[index])
+  return new_list
+
+#Uncomment the line below when your function is done
+print(odd_indices([4, 3, 7, 10, 11, -2]))
+
+#Here is this solution:
+
+def odd_indices(lst):
+  new_lst = []
+  for index in range(1, len(lst), 2):
+    new_lst.append(lst[index])
+  return new_lst
+
+
+
+#Exponents
+
+"""
+In this challenge, we will be using nested loops in order to raise a list of numbers to the power of a list of other numbers. What this means is that for every number in the first list, we will raise that number to the power of every number in the second list. If you provide the first list with 2 elements and the second list with 3 numbers, then there will be 6 final answers. Let’s look at the steps we need:
+
+Define the function to accept two lists of numbers, bases and powers
+Create a new list that will contain our answers
+Create a loop that iterates through every base in bases
+Within that loop, create another loop that iterates through every power in power
+Within that nested loop, append the result of the current base raised to the current power.
+After all iterations of both loops are complete, return the list of answers
+
+
+Coding question
+Create a function named exponents() that takes two lists as parameters named bases and powers. 
+Return a new list containing every number in bases raised to every number in powers.
+
+For example, consider the following code.
+
+exponents([2, 3, 4], [1, 2, 3])
+the result would be the list [2, 4, 8, 3, 9, 27, 4, 16, 64]. It would first add two to the first.
+Then two to the second. Then two to the third, and so on.
+
+Hint
+Use nested for loops. The outer for loop should loop through all of the bases and the inner for loop should loop through all of the powers.
+Remember a ** b is a to the power of b
+
+"""
+
+#my code before solution
+
+#Write your function here
+def exponents(bases, powers):
+  new_list = []
+  for base in exponents:
+    bases ** powers
+  for power in powers:
+      
+  return new_list
+
+#Uncomment the line below when your function is done
+print(exponents([2, 3, 4], [1, 2, 3]))
+
+
+#solution
+#Write your function here
+def exponents(bases, powers):
+  new_list = []
+  for base in bases:
+    for power in powers:
+      new_list.append(base ** power)
+  return new_list
+
+#Uncomment the line below when your function is done
+print(exponents([2, 3, 4], [1, 2, 3]))

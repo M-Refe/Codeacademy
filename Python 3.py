@@ -3377,3 +3377,212 @@ Next, we calculated the total number of games using the number of wins + losses.
 After that, we use calculate the ratio of wins out of the total number of games by dividing wins by our total_games variable. 
 Since this gives us a ratio and we want it in percentage form, we multiply the answer by 100 and return it.
 """
+
+
+#### STRINGS!
+
+"""
+
+
+Copeland’s Corporate Company also wants to update how they generate temporary passwords for new employees.
+
+Write a function called password_generator() that takes two inputs, first_name and last_name, 
+and then concatenates the last three letters of each and returns them as a string.
+
+Test your function on the provided first_name and last_name and save it to the variable temp_password.
+
+
+
+"""
+
+#code/my code + solution code
+##given
+first_name = "Reiko"
+last_name = "Matsuki"
+
+##created 
+def password_generator(first_name, last_name):
+  employee = first_name[2:] + last_name[4:]
+  return employee
+
+temp_password = password_generator(first_name, last_name)
+print(temp_password)
+
+
+#NEGATIVE Indices
+
+"""
+Negative Indices
+In the previous exercise, we used len() to get a slice of characters at the end of a string.
+
+There’s a much easier way to do this — we can use negative indices! Negative indices count backward from the end of the string, so string_name[-1] is the last character of the string, string_name[-2] is the second last character of the string, etc.
+
+Here are some examples:
+
+favorite_fruit = 'blueberry'
+print(favorite_fruit[-1])
+# => 'y'
+ 
+print(favorite_fruit[-2])
+# => 'r'
+ 
+print(favorite_fruit[-3:])
+# => 'rry'
+
+"""
+
+#Example
+"""
+Use negative indices to find the second to last character in company_motto. Save this to the variable second_to_last.
+Use negative indices to create a slice of the last 4 characters in company_motto. Save this to the variable final_word.
+"""
+
+##given
+#company_motto = "Copeland's Corporate Company helps you capably cope with the constant cacophony of daily life"
+
+
+company_motto = "Copeland's Corporate Company helps you capably cope with the constant cacophony of daily life"
+
+#my code
+second_to_last = (company_motto[-2])
+final_word = (company_motto[-4:])
+
+
+
+"""
+Strings are Immutable
+So far in this lesson, we’ve been selecting characters from strings, slicing strings, and concatenating strings. 
+Each time we perform one of these operations we are creating an entirely new string.
+
+This is because strings are immutable. 
+This means that we cannot change a string once it is created. 
+We can use it to create other strings, but we cannot change the string itself.
+
+This property, generally, is known as mutability. 
+Data types that are mutable can be changed, and data types, like strings, that are immutable cannot be changed.
+
+
+"""
+
+
+"""
+The most recent hire at Copeland’s Corporate Company is a fellow named Rob Daily. 
+Unfortunately, Human Resources seem to have made a bit of a typo and sent over the wrong first_name.
+
+Try changing the first character of first_name by running
+
+first_name[0] = "R"
+
+
+Oh right! Strings are immutable, so we can’t change an individual character. Okay that’s no problem—we can still fix this!
+
+Delete the code you just wrote for step 1.
+
+Then, concatenate the string "R" with a slice of first_name that includes everything but the first character, 
+"B", and save it to a new string fixed_first_name.
+"""
+
+##given
+first_name = "Bob"
+last_name = "Daily"
+
+
+#my code
+
+fixed_first_name = "R" + first_name[-2:]
+
+print(fixed_first_name)
+
+
+"""
+Escape Characters
+Occasionally when working with strings, 
+you’ll find that you want to include characters that already have a special meaning in python. 
+For example let’s say I create the string
+
+ favorite_fruit_conversation = "He said, "blueberries are my favorite!""
+We’ll have accidentally ended the string before we wanted to by including the " character. 
+The way we can do this is by introducing escape characters. 
+By adding a backslash in front of the special character we want to escape, \", we can include it in a string.
+
+favorite_fruit_conversation = "He said, \"blueberries are my favorite!\""
+
+
+"""
+
+"""
+When Rob Daily (remember him? From the last exercise?) set up his account he set his password to be
+
+theycallme"crazy"91
+His password was causing some errors in the system because of the " marks. 
+Rewrite his password using escape characters and save it to the variable password.
+
+
+"""
+
+#given code
+
+password = "theycallme"crazy"91"
+
+#my code
+password = "theycallme\"crazy\"91"
+
+print(password)
+
+
+"""
+Iterating through Strings
+Now you know enough about strings that we can start doing the really fun stuff!
+
+Because strings are lists, that means we can iterate through a string using for or while loops. 
+This opens up a whole range of possibilities of ways we can manipulate and analyze strings. 
+Let’s take a look at an example.
+
+def print_each_letter(word):
+  for letter in word:
+    print(letter)
+This code will iterate through each letter in a given word and will print it to the terminal.
+
+favorite_color = "blue"
+print_each_letter(favorite_color)
+# => 'b'
+# => 'l'
+# => 'u'
+# => 'e'
+Let’s try a couple of problems where we need to iterate through a string.
+
+
+"""
+
+
+"""
+.
+Let’s replicate a function you are already familiar with, len().
+
+Write a new function called get_length() 
+that takes a string as an input and returns the number of characters in that string. 
+Do this by iterating through the string, don’t cheat and use len()!
+"""
+
+#my code
+
+def get_length("supercalifragilistic expialidocious"):
+  counter = 0
+  for number in get_length:
+    counter += 1
+print(get_length)
+
+#solution code
+def get_length(word):
+  counter = 0
+  for letter in word:
+    counter += 1
+  return counter
+
+  #my code after solution
+  
+def get_length(supercalifragilisticexpialidocious):
+  counter = 0
+  for number in supercalifragilisticexpialidocious:
+    counter += 1
+  return counter
